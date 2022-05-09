@@ -1,0 +1,38 @@
+
+{% load tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {% tailwind_css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+    <header class="md:w-full">
+      {% block navbar %}
+      {% endblock navbar %}
+    </header>
+
+      {% block body %}
+      
+      {% block content %}
+      {% endblock content %}
+            
+      {% block footer %}
+      {% endblock footer %}
+
+      {% endblock body %}
+      
+      {% block accesibilidad %}
+      {% endblock accesibilidad %}
+        
+      
+      {% block javascript %}
+      {% endblock javascript %}
+    </body>
+</html>

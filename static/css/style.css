@@ -1,0 +1,23 @@
+.acces {
+    position: fixed;
+    right: 0px;
+    top: 54%;
+    right: 10px;
+    width: 50px;
+}
+
+
+.acces_info {
+    position: fixed;
+    right: 10px;
+    top: 47%;
+    width: 50px;
+}
+
+.modal {
+    transition: opacity 0.25s ease;
+  }
+body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+}

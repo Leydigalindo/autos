@@ -1,0 +1,30 @@
+{% load tailwind_tags %}
+{% load static %}
+<html lang="es">
+  <head>
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+    <script src="{% static 'js/main.js'%}"></script>
+    <title>{% block head_title %}{% endblock %}</title>
+
+  </head>
+  <body>
+    {% block body %}
+  <div>
+  {% block content %}
+  {% if messages %}
+  <div>
+    <strong>Messages:</strong>
+    <ul>
+      {% for message in messages %}
+      <li>{{message}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {% endblock content %}
+  </div>
+    {% endblock body%}
+   
+  </body>
+</html>
