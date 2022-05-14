@@ -1,0 +1,88 @@
+{% extends "basepag.html" %}
+{% block title %}
+Usuario
+{% endblock title  %}
+
+
+{% block navbar %}
+{% include "components/navbar.html" %} 
+{% endblock navbar %}
+<body>
+    <div class="h-screen rounded flex items-center justify-center bg-slate-900">
+        <card class=" border p-4 rounded bg-white shadow-2xl">
+            <p class="text-center text-gray-700 font-light font-bold mt-5 mb-5 ">Factura #:</p>
+            <p class="text-center text-gray-700 font-light font-bold mt-5 mb-5 ">Reporte de factura</p>
+            <!-- Logo -->
+          <div class="w-full">
+            <img  src="../src\img\output-onlinepngtools.png" class="w-30 mx-auto block"/>
+          </div>
+          <!-- Description -->
+          <table class="static w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <tbody>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        Fecha:
+                    </th>
+                    <td class="px-6 py-4">
+                        12/04/2021
+                    </td>
+                </tr>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        Cliente:
+                    </th>
+                    <td class="px-6 py-4">
+                        Pedro Penguin
+                    </td>
+                </tr>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        Teléfono:
+                    </th>
+                    <td class="px-6 py-4">
+                        3607894956
+                    </td>
+                </tr>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        Numero Placa:
+                    </th>
+                    <td class="px-6 py-4">
+                        SLW-224
+                    </td>
+                </tr>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row " class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
+                        Modelo:
+                    </th>
+                    <td class="px-6 py-4 ">
+                        2017
+                    </td>
+                </tr>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row " class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
+                        Servicio:
+                    </th>
+                    <td class="px-6 py-4 ">
+                        Latoneria
+                    </td>
+                </tr>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
+                    <th scope="row " class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
+                        Pago total:
+                    </th>
+                    <td class="px-6 py-4 ">
+                        300.000
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </card>
+        
+    </div>
+
+
+    <!--  -->
+
+</body>
+</html>

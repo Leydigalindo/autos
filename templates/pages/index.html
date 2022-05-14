@@ -36,24 +36,27 @@
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                             </svg>
+                            </div>
+                            <h2 class="text-lg font-medium text-black dark:text-white title-font">Vehículos</h2>
                         </div>
-                        <h2 class="text-lg font-medium text-black dark:text-white title-font">vehiculo</h2>
                     </div>
-                </div>
-            </button>
-        </a>
-            <button class="m-4 md:w-96">
-                <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
-                    <div class="flex items-center mb-3">
-                        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
+                </button>
+            </a>
+            <a href="{% url 'marca' %}">
+                <button class="m-4 md:w-96">
+                    <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
+                        <div class="flex items-center mb-3">
+                            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                            </div>
+                            <h2 class="text-lg font-medium text-black dark:text-white title-font">Marca</h2>
                         </div>
-                        <h2 class="text-lg font-medium text-black dark:text-white title-font">Marca</h2>
                     </div>
-                </div>
-            </button>
+                </button>
+            </a>
+            <a href="{% url 'insumo' %}">
             <button class="m-4 md:w-96">
                 <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
                     <div class="flex items-center mb-3">
@@ -66,6 +69,8 @@
                     </div>
                 </div>
             </button>
+        </a>
+        <a href="{% url 'servicio' %}">
             <button class="m-4 md:w-96">
                 <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
                     <div class="flex items-center mb-3">
@@ -78,6 +83,7 @@
                     </div>
                 </div>
             </button>
+        </a>
             <button class="m-4 md:w-96">
                 <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
                     <div class="flex items-center mb-3">
@@ -91,6 +97,7 @@
                     </div>
                 </div>
             </button>
+        
             <!-- <button class="m-4 md:w-96">
                 <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
                     <div class="flex items-center mb-3">
@@ -103,6 +110,8 @@
                     </div>
                 </div>
             </button> -->
+            
+        <a href="{% url 'detalleFactura' %}">
             <button class="m-4 md:w-96">
                 <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
                     <div class="flex items-center mb-3">
@@ -347,8 +356,8 @@
 <button class="acces">
     <img src="{% static 'img/accesibilidad.svg'%}" alt="" srcset="" />
   </button>
-  <button class="acces">
-    <img class="acces_info" src="{% static 'img/info.svg' %}" alt="" srcset="" />
+  <button class="acces_info">
+    <img src="{% static 'img/info.svg' %}" alt="" srcset="" />
   </button> 
 {% endblock accesibilidad %}
 

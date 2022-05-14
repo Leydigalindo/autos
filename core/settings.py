@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     
     'core',
     'registro',
+    'servicios',
+    'facturacion',
     
     'tailwind',
     'theme',
@@ -119,7 +121,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': '1122',
+        'PASSWORD': '',
     }
 }
 
@@ -175,3 +177,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGOUT_REDIRECT_URL = 'account_login'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'vehiculo'
+
+

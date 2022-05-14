@@ -9,8 +9,9 @@
 
 .acces_info {
     position: fixed;
-    right: 10px;
-    top: 47%;
+    right: 0px;
+    top: 49%;
+    right: 5px;
     width: 50px;
 }
 

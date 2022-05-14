@@ -1,0 +1,175 @@
+
+{% extends "basepag.html" %}
+{% load static %}
+{% block title %}
+Detalle Factura
+{% endblock title  %}
+
+
+{% block navbar %}
+{% include "components/navbar.html" %} 
+{% endblock navbar %}
+
+
+{% block content %}
+
+ <section class="w-full ">
+    <div class="flex flex-wrap justify-center w-full px-2 ">
+        <div class="text-xl leading-normal text-gray-800 lg:w-50">
+            <div class="sticky inset-0 block lg:hidden"></div>
+        </div>
+
+       
+        <section class="w-full lg:w-4/5">
+
+            <!--divider-->
+
+            <h1 class="px-2 mt-4 font-sans text-xl font-bold text-center text-black break-normal lg:mt-0 md:text-2xl">
+                Detalle Factura</h1>
+            <!--Card-->
+            <div id='section2' class="p-8 bg-white rounded shadow lg:mt-0">
+                
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {% for campo in detalle %}
+                    <!--Nombre-->
+                    
+                    
+                    <div class="col-span-12 help-text">{{campo.errors}}</div>
+                    <div class="mb-6 md:flex">
+                        
+                        {% comment %} label {% endcomment %}
+                        <div class="md:w-full">
+                            <label 
+                            for="base-input"
+                            class="block mb-2 text-sm font-medium text-black dark:text-black">
+                            {{campo.label}}
+
+                        </label>
+                        
+                        
+                        {% comment %} input {% endcomment %}
+                    
+                            <input 
+                            type="{{campo.field.widget.input_type}}"
+                            id="base-input"
+                            name="{{campo.name}}"
+                            placeholder="{{ campo.label }}"
+                            value="{{campo.value | default:''}}"
+                            class="block bg-light-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                    
+                    <!--precio-->
+                    <!--Boton-->
+                    <div class="flex justify-center">
+                        <button 
+                        type="submit"
+                        class=" text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800"
+                        value="Enviar informacion"
+                        >
+                        AGREGAR
+                    </button>
+                        </div>
+                </form>
+            </div>
+
+            <!--Búsqueda-->
+            <div class="flex justify-center"><button type="button" class=" text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800">AGREGAR</button>
+            </div>
+            <div class="flex items-center justify-end">
+                <div>
+                    <select name="" class="form-select block w-full focus:bg-gray text-gray-600" id="my-select">
+                    <option value="Default">Filtro</option>
+                    <option value="A">N° Factura</option>
+                    <option value="B">Servicio</option>
+                </select>
+                </div>
+                <div class="flex border-2 rounded">
+                    <input type="text" class="px-4 py-2 w-20" placeholder="Search...">
+                    <button class="flex items-center justify-center px-4 border-l">
+                        <svg class="w-4 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!--Tabla-->
+            <div class="flex flex-col">
+                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="inline-block min-w-full py-4 sm:px-6 lg:px-8">
+                        <div class="overflow-hidden">
+                            <table class="min-w-full text-sm text-left text-black rounded-sm dark:text-gray-400">
+                                <thead
+                                    class="text-xs text-gray-700 uppercase bg-light-white dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="p-4">
+                                            <div class="flex items-center">
+                                                <input id="checkbox-all" type="checkbox"
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                <label for="checkbox-all" class="sr-only">checkbox</label>
+                                            </div>
+                                        </th>
+                                        
+                                    
+                                        <th scope="col"
+                                        class="px-6 py-4 text-sm font-medium text-black">
+                                        Servicio
+                                        </th>
+                                        <th scope="col"
+                                        class="px-6 py-4 text-sm font-medium text-black">
+                                        Pago
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-4 text-sm font-medium text-black">
+                                           Opciones
+                                        </th>
+                                        
+                                        
+                                        
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    {% for detalleFactura in detalle_db %}
+                                    <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                        <td class="w-4 p-4">
+                                            <div class="flex items-center">
+                                                <input id="checkbox-table-1" type="checkbox"
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                <label for="checkbox-table-1" class="sr-only">checkbox</label>
+                                            </div>
+                                        </td>
+                                        <th scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                            {{detalle.servicio}}
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            {{detalle.pago }}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        </section>
+</section> 
+
+
+
+
+{% endblock content %}
+
+
+{% block footer %}
+{% include "components/footer.html" %}
+{% endblock footer %}
