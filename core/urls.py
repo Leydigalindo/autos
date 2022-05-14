@@ -9,6 +9,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', home, name='home'),
     path('registro/', include('registro.urls')),
+    path('servicio/',include('servicios.urls')),
+    path('factura/',include("facturacion.urls")),
     # path('factura/', include('')) guia para incluir las urls de sus aplicaciones 
     
 ]
