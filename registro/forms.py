@@ -10,4 +10,5 @@ class vehiculoForm(forms.ModelForm):
     class Meta:
         model = Vehículo
         fields = '__all__'
+
     
