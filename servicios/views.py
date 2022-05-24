@@ -59,20 +59,32 @@ def marca(request):
         marca.save()
         return redirect('marca')
     context = {
-        'marca_db': marca_db,
+        'marca_dbs': marca_db,
         'marca': marca,
     }
-    return render (request, 'servicios/marca.html', context)
+    return render (request,'servicios/marca.html', context)
 
 
-#def editarmarca(request,id):
+def editarMarca(request,id):
     edit_marca = Marca.objects.get(id=id)
-    formulario_marca = MarcaForm(request.POST or None, instance=edit_marca)
+    marca = MarcaForm(request.POST or None, instance=edit_marca)
     context={
-        'formulario_vh': formulario_marca,
+        'marca': marca,
     }
-    if formulario_marca.is_valid() and request.method == 'POST':
-        formulario_marca.save()
+    if marca.is_valid() and request.method == 'POST':
+        marca.save()
         return redirect('marca')
     return render (request, 'servicios/marca.html', context)   
-     
+
+def eliminarMarca(request,id):
+    delete_user = Marca.objects.get(id=id)
+    url_back = 'marca'
+    txt_action = 'marca'
+    context = {
+        'url_back': url_back,
+        'txt_action': txt_action,
+    }
+    if request.method == 'POST':
+        delete_user.delete()
+        return redirect ('insumo')  
+    return render (request, 'servicios/deletemarca.html',context)

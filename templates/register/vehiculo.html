@@ -1,4 +1,5 @@
 {% extends "basepag.html" %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block title %}
 Vehiculo
@@ -30,9 +31,9 @@ Vehiculo
                 
                 <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
-                    {% for campo in vehiculo %}
-                    <!--Nombre-->
-                    
+                    {{ vehiculo|crispy}}
+                    <!--{% for campo in vehiculo %}
+                    Nombre
                     
                     <div class="col-span-12 help-text">{{campo.errors}}</div>
                     <div class="mb-6 md:flex">
@@ -58,9 +59,10 @@ Vehiculo
                             class="block bg-light-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
-
+                    
                     {% endfor %}
                     
+                -->
                     <!--precio-->
                     <!--Boton-->
                     <div class="flex justify-center">
@@ -130,7 +132,7 @@ Vehiculo
 
                                 </thead>
                                 <tbody>
-                                    {% for vehiculo in vehiculo_dbs %}
+                                    {% for vehiculo in vehiculo_db %}
                                     <tr
                                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <td class="w-4 p-4">
@@ -191,7 +193,6 @@ Vehiculo
 
 
 {% endblock content %}
-
 
 {% block footer %}
 {% include "components/footer.html" %}

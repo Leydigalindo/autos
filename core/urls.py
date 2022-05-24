@@ -1,7 +1,8 @@
 
 from django.contrib import admin
 from django.urls import include, path
-from core.views import home
+from core import views
+from core.views import home, manual
 
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
@@ -11,6 +12,7 @@ urlpatterns = [
     path('registro/', include('registro.urls')),
     path('servicio/',include('servicios.urls')),
     path('factura/',include("facturacion.urls")),
+    path('manual', views.manual, name=''),
     # path('factura/', include('')) guia para incluir las urls de sus aplicaciones 
     
 ]

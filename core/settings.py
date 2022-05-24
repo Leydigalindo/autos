@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
-    
+    'bootstrap5',
     'crispy_forms',
     'crispy_tailwind',
 
@@ -121,7 +121,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '1122',
     }
 }
 
@@ -179,3 +179,12 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'vehiculo'
 
 
+#BACKEND PARA CORREOS ELECTRONICOS
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_SUBJECT_PREFIX = '[Migue Autos] '
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
