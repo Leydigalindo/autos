@@ -1,4 +1,6 @@
 {% extends "basepag.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
 {% block title %}
 Usuario
 {% endblock title  %}
@@ -29,7 +31,8 @@ Usuario
 
                 <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
-                    {% for campo in formulario %}
+                    {{formulario|crispy}}
+                    <!-- {% for campo in formulario %}
 
 
 
@@ -50,7 +53,7 @@ Usuario
                         </div>
                     </div>
 
-                    {% endfor %}
+                    {% endfor %} -->
 
                     <!--precio-->
                     <!--Boton-->
@@ -71,7 +74,7 @@ Usuario
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-4 sm:px-6 lg:px-8">
                         <div class="overflow-hidden">
-                            <table class="min-w-full text-sm text-left text-gray-500 rounded-sm dark:text-gray-400">
+                            <table id="tablausuario" class="min-w-full text-sm text-left text-gray-500 rounded-sm dark:text-gray-400">
                                 <thead
                                     class="text-xs text-gray-700 uppercase bg-light-white dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
@@ -152,68 +155,7 @@ Usuario
                                         </td>
                                     </tr>
                                     {% endfor %}
-                                    <!-- <tr
-                                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                        <td class="w-4 p-4">
-                                            <div class="flex items-center">
-                                                <input id="checkbox-table-2" type="checkbox"
-                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                <label for="checkbox-table-2" class="sr-only">checkbox</label>
-                                            </div>
-                                        </td>
-                                        <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                            Microsoft Surface Pro
-                                        </th>
-                                        <td class="px-6 py-4">
-                                            White
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            Laptop PC
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            $1999
-                                        </td>
-                                        <td class="flex justify-around px-6 py-4 text-right">
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar
-                                            </a>
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Eliminar
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                        <td class="w-4 p-4">
-                                            <div class="flex items-center">
-                                                <input id="checkbox-table-3" type="checkbox"
-                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                <label for="checkbox-table-3" class="sr-only">checkbox</label>
-                                            </div>
-                                        </td>
-                                        <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                            Magic Mouse 2
-                                        </th>
-                                        <td class="px-6 py-4">
-                                            Black
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            Accessories
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            $99
-                                        </td>
-                                        <td class="flex justify-around px-6 py-4 text-right">
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar
-                                            </a>
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Eliminar
-                                            </a>
-                                        </td>
-                                        
-                                    </tr> -->
+                          
                                 </tbody>
                             </table>
                         </div>
@@ -222,12 +164,20 @@ Usuario
         </section>
 </section>
 
-
-
-
 {% endblock content %}
 
 
+
+{% block javascript %}
+<script >
+$(document).ready( function () {
+$('#tablausuario').DataTable();
+} );
+</script>
+
+{% endblock javascript %}
+
+
 {% block footer %}
-{% include "components/footer.html" %}
+{% include 'components/footer.html' %}
 {% endblock footer %}

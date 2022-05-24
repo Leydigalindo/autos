@@ -12,7 +12,7 @@ urlpatterns = [
     path('registro/', include('registro.urls')),
     path('servicio/',include('servicios.urls')),
     path('factura/',include("facturacion.urls")),
-    path('manual', views.manual, name='manual'),
+    path('manual', views.manual, name=''),
     # path('factura/', include('')) guia para incluir las urls de sus aplicaciones 
     
 ]

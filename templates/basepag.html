@@ -1,39 +1,47 @@
-
 {% load tailwind_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    {% tailwind_css %}
-    {% load crispy_forms_tags %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <title>{% block title %}{% endblock title %}</title>
-  </head>
-  <body>
-    <header class="md:w-full">
-      {% block navbar %}
-      {% endblock navbar %}
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  {% tailwind_css %}
+  {% load crispy_forms_tags %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/datatables.css' %}">
+  <script type="text/javascript" charset="utf8" src="{% static 'js/datatables.js' %}"></script>
 
-      {% block body %}
-      
-      {% block content %}
-      {% endblock content %}
-            
-      {% block footer %}
-      {% endblock footer %}
+  <title>{% block title %}{% endblock title %}</title>
+</head>
 
-      {% endblock body %}
-      
-      {% block accesibilidad %}
-      {% endblock accesibilidad %}
-        
-      
-      {% block javascript %}
-      {% endblock javascript %}
-    </body>
+<body>
+  <header class="md:w-full">
+    {% block navbar %}
+    {% endblock navbar %}
+  </header>
+
+{% block body %}
+
+{% block content %}
+{% endblock content %}
+  
+
+{% endblock body %}
+
+<div class="acces">
+{% block accesibilidad %}
+{% include 'components/acces.html' %}
+{% endblock accesibilidad %}
+</div>
+  
+
+{% block footer %}
+{% endblock footer %}
+
+{% block javascript %}
+{% endblock javascript %}
+</body>
+
 </html>
