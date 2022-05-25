@@ -33,35 +33,23 @@ Detalle Factura
                     {% csrf_token %}
                     {% for campo in detalle %}
                     <!--Nombre-->
-                    
-                    
+
+
                     <div class="col-span-12 help-text">{{campo.errors}}</div>
                     <div class="mb-6 md:flex">
-                        
+
                         {% comment %} label {% endcomment %}
                         <div class="md:w-full">
-                            <label 
-                            for="base-input"
-                            class="block mb-2 text-sm font-medium text-black dark:text-black">
+                            <label for="base-input" class="block mb-2 text-sm font-medium text-black dark:text-black">
                             {{campo.label}}
 
-                        </label>
-                        
-                        
-                        {% comment %} input {% endcomment %}
-                    
-                            <input 
-                            type="{{campo.field.widget.input_type}}"
-                            id="base-input"
-                            name="{{campo.name}}"
-                            placeholder="{{ campo.label }}"
-                            value="{{campo.value | default:''}}"
-                            class="block bg-light-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </label> {% comment %} input {% endcomment %}
+
+                            <input type="{{campo.field.widget.input_type}}" id="base-input" name="{{campo.name}}" placeholder="{{ campo.label }}" value="{{campo.value | default:''}}" class="block bg-light-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
 
                     {% endfor %}
-                    
                     <!--precio-->
                     <!--Boton-->
                     <div class="flex justify-center">
@@ -76,28 +64,6 @@ Detalle Factura
                 </form>
             </div>
 
-            <!--Búsqueda-->
-            <div class="flex justify-center"><button type="button" class=" text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800">AGREGAR</button>
-            </div>
-            <div class="flex items-center justify-end">
-                <div>
-                    <select name="" class="form-select block w-full focus:bg-gray text-gray-600" id="my-select">
-                    <option value="Default">Filtro</option>
-                    <option value="A">N° Factura</option>
-                    <option value="B">Servicio</option>
-                </select>
-                </div>
-                <div class="flex border-2 rounded">
-                    <input type="text" class="px-4 py-2 w-20" placeholder="Search...">
-                    <button class="flex items-center justify-center px-4 border-l">
-                        <svg class="w-4 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
 
             <!--Tabla-->
             <div class="flex flex-col">
@@ -148,10 +114,22 @@ Detalle Factura
                                         </td>
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                            {{detalle.servicio}}
+                                            {{detalleFactura.servicio}}
                                         </th>
-                                        <td class="px-6 py-4">
-                                            {{detalle.pago }}
+                                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                            {{detalleFactura.pago }}
+                                        </td>
+                                        <td class="flex justify-around px-6 py-4 text-right">
+                                            {% comment %} Editar {% endcomment %}
+                                            <a href="{% url 'editarDetalleFa' detalleFactura.id %}" class="font-medium text-light-white md:hover:text-blue-700 dark:text-blue-500"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                              </svg>
+                                            </a> {% comment %} Eliminar {% endcomment %}
+                                            <a href="{% url 'eliminarDetalleFa' detalleFactura.id %}" class="font-medium text-light-white md:hover:text-blue-700 dark:text-blue-500 hover:underline">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">      
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                            </svg>
+                                            </a>
                                         </td>
                                     </tr>
                                     {% endfor %}

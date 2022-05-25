@@ -1,12 +1,12 @@
 from django import forms
-from facturacion.models import DetalleFactura
+from facturacion.models import DetalleFactura,Factura
 
 class DetalleFacturaForm(forms.ModelForm):
     class Meta:
         model=DetalleFactura
-        fields =['servicio','pago']
+        fields ='__all__'
 
-#class FacturaForm(forms.ModelForm):
-    #class Meta:
-       # model=Factura
-        #fields=['nombre','telefono','placa','modelo','servicio','pago']
+class FacturaForm(forms.ModelForm):
+    class Meta:
+       model=Factura
+       fields='__all__'
