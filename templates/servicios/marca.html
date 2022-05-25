@@ -1,4 +1,5 @@
 {% extends "basepag.html" %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block title %}
 Marca
@@ -28,8 +29,8 @@ Marca
                 
                 <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
-                    {% for campo in marca %}
-                    <!--Nombre-->
+                    {{ marca|crispy}}
+                    <!--Nombre
                     
                     
                     <div class="col-span-12 help-text">{{campo.errors}}</div>
@@ -57,10 +58,10 @@ Marca
                         </div>
                     </div>
 
-                    {% endfor %}
                     
-                    <!--precio-->
-                    <!--Boton-->
+                    
+                
+                    Boton-->
                     <div class="flex justify-center">
                         <button 
                         type="submit"

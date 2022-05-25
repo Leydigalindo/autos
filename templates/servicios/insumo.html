@@ -1,4 +1,5 @@
 {% extends 'basepag.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block title %}
 Insumo
@@ -25,8 +26,8 @@ Insumo
                 
                 <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
-                    {% for campo in insumo %}
-                    <!--Nombre-->
+                    {{ insumo|crispy}}
+                    <!--
                     
                     
                     <div class="col-span-12 help-text">{{campo.errors}}</div>
@@ -53,11 +54,8 @@ Insumo
                             class="block bg-light-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         </div>
                     </div>
-
-                    {% endfor %}
                     
-                    <!--precio-->
-                    <!--Boton-->
+                     Boton-->
                     <div class="flex justify-center">
                         <button 
                         type="submit"

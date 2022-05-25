@@ -48,4 +48,3 @@ def factura(request):
         'facturas': facturas,
     }
     return render (request, 'facturacion/factura.html', context)
-

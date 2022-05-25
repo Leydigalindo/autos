@@ -9,7 +9,7 @@ class DetalleFactura(models.Model):
 
 class Factura(models.Model):
     fecha= models.DateField(auto_now=True, verbose_name="Fecha de Factura", help_text=u"MM/DD/AAAA")
-    nombre=models.ForeignKey(Usuario,on_delete=models.SET_NULL,null=True,related_name='Nombre')
+    cliente=models.ForeignKey(Usuario,on_delete=models.SET_NULL,null=True,related_name='Cliente')
     telefono=models.ForeignKey(Usuario,on_delete=models.SET_NULL,null=True,related_name='Telefono')
     placa=models.ForeignKey(Vehículo,on_delete=models.SET_NULL,null=True,related_name='Placa')
     modelo=models.ForeignKey(Vehículo,on_delete=models.SET_NULL,null=True,related_name='Modelo')
