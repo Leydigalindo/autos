@@ -1,4 +1,7 @@
 {% load static %}
+{% load account %}
+{% load i18n %}
+{% user_display user as name %}
 <nav class="bg-light-white border-gray-200 px-2 sm:px-4 py-2.5 rounded-b-sm dark:bg-gray-800">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
         <!-- <a href="" class="flex items-center">
@@ -41,7 +44,7 @@
                 </li> {% endcomment %}
                 
                 {% if not user.is_authenticated %}
-                <li class="w-full xl:flex">
+                <li class="h-36 xl:flex">
                     <a href="{% url 'account_signup' %}"
                     class="inline-flex items-center justify-center p-1 bg-blue-500 rounded-full hover:bg-blue-700-200">
                     <span class="mx-2 font-semibold dark:text-black">
@@ -49,7 +52,7 @@
                     </span>
                 </a>
                 </li>
-                <li class="w-full xl:flex">
+                <li class="h-36 xl:flex">
                     <a href="{% url 'account_login' %}"
                     class="inline-flex items-center justify-center p-1 bg-blue-500 rounded-full hover:bg-blue-700-200">
                     <span class="mx-2 font-semibold dark:text-black">
@@ -58,14 +61,15 @@
                 </a>
                 </li>
                 {% else %}
-                <li class="w-full xl:flex">
+                <li class="h-36 xl:flex">
                     <div class="inline-flex items-center justify-center p-1 bg-blue-500 rounded-full hover:bg-blue-700-200">
                     <span class="mx-2 font-semibold dark:text-black">
-                        Usuario autorizado
+                        Usario registrado como:
+                        {{name}}
                     </span>
                 </div>
                 </li>
-                <li class="w-full xl:flex">
+                <li class="h-20 xl:flex">
                     <a href="{% url 'account_logout' %}"
                     class="inline-flex items-center justify-center p-1 bg-blue-500 rounded-full hover:bg-blue-700-200">
                     <span class="mx-2 font-semibold dark:text-black">

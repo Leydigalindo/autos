@@ -32,31 +32,7 @@ Usuario
                 <form enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
                     {{formulario|crispy}}
-                    <!-- {% for campo in formulario %}
 
-
-
-                    <div class="col-span-12 help-text">{{campo.errors}}</div>
-                    <div class="mb-6 md:flex">
-
-                        <div class="md:w-full">
-                            <label for="base-input" class="block mb-2 text-sm font-medium text-black dark:text-black">
-                                {{campo.label}}
-                            </label>
-
-
-
-
-                            <input type="{{campo.field.widget.input_type}}" id="base-input" name="{{campo.name}}"
-                                placeholder="{{ campo.label }}" value="{{campo.value | default:''}}"
-                                class="block bg-light-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        </div>
-                    </div>
-
-                    {% endfor %} -->
-
-                    <!--precio-->
-                    <!--Boton-->
                     <div class="flex justify-center">
                         <button type="submit"
                             class=" text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800"
@@ -74,7 +50,8 @@ Usuario
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full py-4 sm:px-6 lg:px-8">
                         <div class="overflow-hidden">
-                            <table id="tablausuario" class="min-w-full text-sm text-left text-gray-500 rounded-sm dark:text-gray-400">
+                            <table id="tabla"
+                                class="min-w-full text-sm text-left text-gray-500 rounded-sm dark:text-gray-400">
                                 <thead
                                     class="text-xs text-gray-700 uppercase bg-light-white dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
@@ -155,7 +132,7 @@ Usuario
                                         </td>
                                     </tr>
                                     {% endfor %}
-                          
+
                                 </tbody>
                             </table>
                         </div>
@@ -166,15 +143,7 @@ Usuario
 
 {% endblock content %}
 
-
-
 {% block javascript %}
-<script >
-$(document).ready( function () {
-$('#tablausuario').DataTable();
-} );
-</script>
-
 {% endblock javascript %}
 
 

@@ -1,42 +1,61 @@
 {% load bootstrap5 %}
 {% load static %}
-
+<div id="menu_verical" class="menu pointerCursor hide">
   <button
-    type="button"
-    class="btn btn-secondary dropdown-toggle"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
+  type="button"
+  class="btn btn-secondary dropdown-toggle"
+  data-bs-toggle="dropdown"
+  aria-expanded="false"
   >
-    <img class="w-75" src="{% static 'img/accessibility_white_24dp.svg'%}" alt="" />
+    
   </button>
   <ul class="dropdown-menu">
     <li>
-      <button class="dropdown-item" type="button" id="aumentar">
-        <img class="w-25" src="zoom_in_black_24dp.svg" alt="" />Aumentar Letra
-      </button>
+      
     </li>
     <li>
-      <button class="dropdown-item" type="button" id="disminuir">
-        <img class="w-25" src="{% static 'zoom_out_black_24dp.svg' %}" alt="" /> Reducir Letra
-      </button>
+      
     </li>
     <li>
-      <button class="dropdown-item" type="button" id="restaurar">
-        <img class="w-25" src="{% static 'restart_alt_black_24dp.svg' %}" alt="" />Restaurar
-      </button>
+      
     </li>
     <li>
-      <button class="dropdown-item input-group" type="button" id="dark">
-        <img class="w-25" src="{% static 'invert_colors_black_24dp.svg'%}" alt="" /> Contraste
-      </button>
+      
     </li>
   </ul>
+</div>
+<div class="container flex justify-center mx-auto acces">
+  <div x-data="{ open: false }" @mouseleave="open = false" class="relative">
+      <!-- Dropdown toggle button -->
+      <button @mouseover="open = true" class="flex items-center p-2 bg-transparent rounded-t">
+        <img class="w-75" src="{% static 'img/accessibility_white_24dp.svg'%}" alt=""/> 
+      </button>
 
-
-<script>
+      <!-- Dropdown menu -->
+      <div x-show="open"
+      x-transition:enter.duration.700ms
+      x-transition:leave.duration.700ms
+      class="absolute right-0 w-48 py-2 bg-transparent rounded-b shadow-xl">
+      <button type="button" id="aumentar">
+        <img class="w-25" src="{% static 'img/zoom-in-line.svg' %}" alt="" />
+      </button>
+      <button type="button" id="disminuir">
+        <img class="w-25" src="{% static 'img/zoom_out_black_24dp.svg' %}" alt="" />
+      </button>
+      <button type="button" id="restaurar">
+        <img class="w-25" src="{% static 'img/restart.svg' %}" alt="" />
+      </button>
+      <button type="button" id="dark">
+        <img class="w-25" src="{% static 'img/invert_colors_black_24dp.svg'%}" alt="" />
+      </button>
+      </div>
+  </div>
+</div>
+<script type="text/javascript" charset="utf8" src="{% static 'js/cdn.alpine.min.js' %}"></script>
+<script type="text/javascript">
   let classes = ["f0", "f1", "f2", "f3", "f4"];
   let classIndex = 2;
-
+  
   document.getElementById("aumentar").addEventListener("click", () => {
     let previousClass = classIndex;
     classIndex++;
@@ -66,4 +85,5 @@
   document.getElementById("dark").addEventListener("click", () => {
     cuerpo.classList.toggle("dark-mode");
   });
+  
 </script>

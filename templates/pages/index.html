@@ -10,112 +10,126 @@
 <section class="min-h-full">
     <div class="container flex flex-wrap mx-auto mt-10">
         <div class="flex flex-col items-center w-full text-center">
-           <img class="w-28" src="{% static 'img/logo.png'%}"></img>
+            <img class="w-28" src="{% static 'img/logo.png'%}"></img>
             <!-- <h1 class="text-2xl font-medium text-black sm:text-3xl font-body title-font">MigueAutos</h1> -->
         </div>
         <div class="flex flex-wrap items-center justify-center">
-            <a href="{% url 'usuario' %}">    
-                <button class="m-4 md:w-96 " type="button">
+            <button class="m-4 md:w-96 " type="button">
+                <a href="{% url 'usuario' %}">
                     <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800">
                         <div class="flex items-center mb-3">
-                            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <div
+                                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                                     <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                                 </svg>
                             </div>
                             <h2 class="text-lg font-medium text-black dark:text-white title-font">Usuario</h2>
                         </div>
                     </div>
-                </button>
-            </a>
-            <a href="{% url 'vehiculo' %}">
-                <button class="m-4 md:w-96">
+                </a>
+            </button>
+            <button class="m-4 md:w-96">
+                <a href="{% url 'vehiculo' %}">
                     <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
                         <div class="flex items-center mb-3">
-                            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                            </svg>
+                            <div
+                                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
                             </div>
                             <h2 class="text-lg font-medium text-black dark:text-white title-font">Vehículos</h2>
                         </div>
                     </div>
-                </button>
-            </a>
-            <a href="{% url 'marca' %}">
-                <button class="m-4 md:w-96">
+                </a>
+            </button>
+            <button class="m-4 md:w-96">
+                <a href="{% url 'marca' %}">
                     <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
                         <div class="flex items-center mb-3">
-                            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                    </svg>
+                            <div
+                                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
                             </div>
                             <h2 class="text-lg font-medium text-black dark:text-white title-font">Marca</h2>
                         </div>
                     </div>
-                </button>
-            </a>
-            <a href="{% url 'insumo' %}">
-            <button class="m-4 md:w-96">
-                <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
-                    <div class="flex items-center mb-3">
-                        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
-                        </div>
-                        <h2 class="text-lg font-medium text-black dark:text-white title-font">Insumo</h2>
-                    </div>
-                </div>
+                </a>
             </button>
-        </a>
-        <a href="{% url 'servicio' %}">
             <button class="m-4 md:w-96">
-                <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
-                    <div class="flex items-center mb-3">
-                        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
+                <a href="{% url 'insumo' %}">
+                    <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
+                        <div class="flex items-center mb-3">
+                            <div
+                                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-lg font-medium text-black dark:text-white title-font">Insumo</h2>
                         </div>
-                        <h2 class="text-lg font-medium text-black dark:text-white title-font">Servicio</h2>
                     </div>
-                </div>
+                </a>
             </button>
-        </a>
+            <button class="m-4 md:w-96">
+                <a href="{% url 'servicio' %}">
+                    <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
+                        <div class="flex items-center mb-3">
+                            <div
+                                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-lg font-medium text-black dark:text-white title-font">Servicio</h2>
+                        </div>
+                    </div>
+                </a>
+            </button>
             <button class="m-4 md:w-96">
                 <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
                     <div class="flex items-center mb-3">
-                        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
+                        <div
+                            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
                         </div>
                         <h2 class="text-lg font-medium text-black dark:text-white title-font">Factura</h2>
-                        
+
                     </div>
                 </div>
             </button>
 
-            
-        <a href="{% url 'detalleFactura' %}">
+
             <button class="m-4 md:w-96">
-                <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
-                    <div class="flex items-center mb-3">
-                        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
+                <a href="{% url 'detalleFactura' %}">
+                    <div class="flex flex-col h-full p-8 rounded-lg bg-light-white dark:bg-gray-800 bg-opacity-60">
+                        <div class="flex items-center mb-3">
+                            <div
+                                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 mr-3 text-black bg-indigo-500 rounded-full">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-lg font-medium text-black dark:text-white title-font">Detalles</h2>
                         </div>
-                        <h2 class="text-lg font-medium text-black dark:text-white title-font">Detalles</h2>
                     </div>
-                </div>
+                </a>
             </button>
-        </a>
         </div>
     </div>
-</section> 
+</section>
 
 
 {% endblock content %}

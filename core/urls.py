@@ -2,8 +2,8 @@
 from django.contrib import admin
 from django.urls import include, path
 from core import views
-from core.views import home, manual
-
+from core.views import home, manual,error_404
+from django.conf.urls import handler404, handler500
 urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('admin/', admin.site.urls),
@@ -14,7 +14,6 @@ urlpatterns = [
     path('factura/',include("facturacion.urls")),
     path('manual', views.manual, name=''),
     # path('factura/', include('')) guia para incluir las urls de sus aplicaciones 
-    
 ]
-
+handler404 = 'core.views.error_404'
 

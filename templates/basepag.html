@@ -1,47 +1,93 @@
-{% load tailwind_tags %}
-{% load static %}
+{% load tailwind_tags %} {% load static %}
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {% tailwind_css %} {% load crispy_forms_tags %} {% comment %} LINKEO DE
+    DATATABLES {% endcomment %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'js/datatable/Bootstrap-5-5.1.3/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'js/datatable/DataTables-1.12.1/css/dataTables.bootstrap5.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'js/datatable/Buttons-2.2.3/css/buttons.bootstrap5.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'js/datatable/SearchBuilder-1.3.3/css/searchBuilder.bootstrap5.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'js/datatable/Responsive-2.3.0/css/responsive.bootstrap5.min.css' %}"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  {% tailwind_css %}
-  {% load crispy_forms_tags %}
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/datatables.css' %}">
-  <script type="text/javascript" charset="utf8" src="{% static 'js/datatables.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <base href="/" />
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
 
-  <title>{% block title %}{% endblock title %}</title>
-</head>
+  <body>
+    <header class="md:w-full">
+      {% block navbar %}
+       {% endblock navbar %}
+      </header>
 
-<body>
-  <header class="md:w-full">
-    {% block navbar %}
-    {% endblock navbar %}
-  </header>
+    {% block body %}
+    {% block content %}
+    {% endblock content %}
+     {% endblock body%}
 
-{% block body %}
+    <div class="acces">
+      {% block accesibilidad %}
+      {% include 'components/acces.html' %} 
+      {%endblock accesibilidad %}
+    </div>
 
-{% block content %}
-{% endblock content %}
-  
+    {% block footer %} {% endblock footer %}
+    {% block javascript %}
+    <script type="text/javascript" src="{% static 'js/datatable/JSZip-2.5.0/jszip.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/pdfmake-0.1.36/pdfmake.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/pdfmake-0.1.36/vfs_fonts.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/DataTables-1.12.1/js/jquery.dataTables.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/DataTables-1.12.1/js/dataTables.bootstrap5.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/Buttons-2.2.3/js/dataTables.buttons.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/Buttons-2.2.3/js/buttons.bootstrap5.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/Buttons-2.2.3/js/buttons.colVis.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/Buttons-2.2.3/js/buttons.html5.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/Buttons-2.2.3/js/buttons.print.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/Responsive-2.3.0/js/dataTables.responsive.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/Responsive-2.3.0/js/responsive.bootstrap5.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/SearchBuilder-1.3.3/js/dataTables.searchBuilder.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datatable/SearchBuilder-1.3.3/js/searchBuilder.bootstrap5.min.js' %}"></script>
 
-{% endblock body %}
+    <script type="text/javascript" src="{% static 'js/tabla.js' %}"></script>
 
-<div class="acces">
-{% block accesibilidad %}
-{% include 'components/acces.html' %}
-{% endblock accesibilidad %}
-</div>
-  
+    <script type="text/javascript" src="{% static 'js/carousel-code.js' %}"></script>
+    
+    <script type="text/javascript" src="{% static 'js/tabla.js' %}"></script>
 
-{% block footer %}
-{% endblock footer %}
+    <script type="text/javascript" src="{% static 'js/select2/select2.js' %}"></script>
+    
+    <script type="application/json" src="{% static 'js/toastr.js.map' %}"></script> 
 
-{% block javascript %}
-{% endblock javascript %}
-</body>
+    <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'js/select2/select2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/open-accessibility/open-accessibility.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/open-accessibility/locale.min.js' %}"></script>
 
+ 
+    {% endblock javascript %}
+  </body>
 </html>

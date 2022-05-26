@@ -16,7 +16,7 @@ class Servicio(models.Model):
 
 class Marca(models.Model):
     nombre = models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")
-    precio=models.IntegerField(max_length=5,default='0', verbose_name="Precio")
+    precio=models.IntegerField(default='0', verbose_name="Precio")
     
     def __str__(self) -> str:
             return '%s'%(self.nombre)
