@@ -1,4 +1,5 @@
 {% extends "basepag.html" %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block title %}
 Factura
@@ -23,68 +24,14 @@ Factura
                     <img class="w-20 mx-auto block" src="{% static 'img/logo.png'%}"/>
                 </div>
                 <!-- Description -->
-                <table class="static w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <tbody>
-                        {% for factura in factura_db %}
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                            Fecha:
-                        </th>
-                        <td class="px-6 py-4">
-                            {{factura.fecha}}
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                            Cliente:
-                        </th>
-                        <td class="px-6 py-4">
-                            {{factura.nombre}}
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                            Teléfono:
-                        </th>
-                        <td class="px-6 py-4">
-                            {{factura.telefono}}
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                            Numero Placa:
-                        </th>
-                        <td class="px-6 py-4">
-                            {{factura.placa}}
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row " class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
-                            Modelo:
-                        </th>
-                        <td class="px-6 py-4 ">
-                            {{factura.modelo}}
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row " class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
-                            Servicio:
-                        </th>
-                        <td class="px-6 py-4 ">
-                            {{factura.servicio}}
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
-                        <th scope="row " class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
-                            Pago total:
-                        </th>
-                        <td class="px-6 py-4 ">
-                            {{factura.pago}}
-                        </td>
-                    </tr>
-                </tbody>
-                {% endfor %}
-            </table>
+                <div id='section2' class="p-8 bg-white rounded shadow lg:mt-0">
+
+                    <form enctype="multipart/form-data" method="POST">
+                        {% csrf_token %}
+                        {{ factura|crispy}}
+                    </form>
+                </div>
+               
             </card>
             <div class="flex justify-center">
                 <!-- <button
@@ -98,10 +45,10 @@ Factura
                 </button>
             </div>
             <a href="{% url 'home' %}"> 
-                </a>
-            </div>
+            </a>
         </div>
-    </section> 
+    </div>
+</section> 
     
     
       

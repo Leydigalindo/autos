@@ -16,7 +16,7 @@ class Usuario(models.Model):
     rol = models.CharField(max_length=10,choices=Rol.choices, verbose_name=u"Seleccione rol")
 
     def __str__(self) -> str:
-        return '%s %s'%(self.nombre, self.apellido)
+        return '%s %s %s %s'%(self.nombre, self.apellido,self.telefono,self.rol)
 
 class Vehículo(models.Model):
     placa = models.CharField(max_length=7, unique=True, help_text="placa del vehiculo",verbose_name="Placa")

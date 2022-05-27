@@ -6,6 +6,8 @@ from registro.models import Usuario,Vehículo
 class DetalleFactura(models.Model):
     servicio=models.ForeignKey(Servicio, on_delete=models.SET_NULL, null=True, verbose_name=u"Servicio")
     pago=models.IntegerField(max_length=5,default='0', verbose_name="Pago")
+    def __str__(self) -> str:
+            return '%s' %(self.servicio)
 
 class Factura(models.Model):
     fecha= models.DateField(auto_now=True, verbose_name="Fecha de Factura", help_text=u"MM/DD/AAAA")
@@ -15,3 +17,4 @@ class Factura(models.Model):
     modelo=models.ForeignKey(Vehículo,on_delete=models.SET_NULL,null=True,related_name='Modelo')
     servicio=models.ForeignKey(Servicio,on_delete=models.SET_NULL,null=True,related_name='Servicio')
     pago=models.ForeignKey(DetalleFactura,on_delete=models.SET_NULL,null=True,related_name='Pago')            
+   

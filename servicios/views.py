@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from servicios.forms import InsumoForm, MarcaForm, ServicioForm
+from servicios.forms import DetalleInsumoForm, InsumoForm, MarcaForm, ServicioForm
 from servicios.models import Insumo, Marca, Servicio
 
 # Create your views here.
@@ -111,3 +111,15 @@ def eliminarMarca(request,id):
         delete_marca.delete()
         return redirect ('marca') 
     return render (request, 'servicios/deletemarca.html',context)
+
+def detalleInsumo(request):
+    detalleInsumo_db = Marca.objects.all()
+    detalleinsumo = DetalleInsumoForm(request.POST or None)
+    if detalleinsumo.is_valid():
+        detalleinsumo.save()
+        return redirect('insumo')
+    context = {
+        ' detalleInsumo_db':  detalleInsumo_db,
+        'detalleinsumo': detalleinsumo,
+    }
+    return render (request,'servicios/servicio.html', context)

@@ -1,6 +1,6 @@
 from django import forms
 
-from servicios.models import Insumo, Marca, Servicio
+from servicios.models import Insumo, Marca, Servicio,DetalleInsumo
 
 class ServicioForm(forms.ModelForm):
     class Meta:
@@ -19,4 +19,9 @@ class MarcaForm(forms.ModelForm):
         model = Marca
         fields=['nombre','precio']
         #fields = '__all__'
+class DetalleInsumoForm(forms.ModelForm):
+    
+    class Meta:
+        model = Insumo
+        fields = '__all__'   
     

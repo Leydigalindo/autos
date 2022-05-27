@@ -6,13 +6,13 @@ from django.core.validators import MinValueValidator
 class Servicio(models.Model):
     nombre = models.CharField(max_length=45, blank=False, unique= True, verbose_name=u"Nombre")
     class Tipodeservicio (models.TextChoices):
-        EXCELENTE = 'Excelente', _('EXCELENTE')
-        REGULAR= 'Regular', _('REGULAR')
-        MALO = 'Malo', _('MALO')
+        EXCELENTE = 'Excelente', _('Excelente')
+        REGULAR= 'Regular', _('Regular')
+        MALO = 'Malo', _('Malo')
     tipodeservicio = models.CharField(max_length=10, choices=Tipodeservicio.choices, verbose_name=u"Seleccione el tipo de servicio")
 
     def __self__(self) -> str:
-        return '%s'%(self.nombre)
+        return '%s'(self.nombre)
 
 class Marca(models.Model):
     nombre = models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")
@@ -27,4 +27,8 @@ class Insumo(models.Model):
 
     def __str__(self) -> str:
             return '%s'%(self.nombre)
-
+class DetalleInsumo(models.Model):
+    insumo=models.ForeignKey(Insumo,on_delete=models.SET_NULL,null=True,verbose_name=u"Insumo")
+    cantidad=models.PositiveIntegerField(validators=[MinValueValidator(1)])
+    def __str__(self) -> str:
+            return '%s'(self.insumo)

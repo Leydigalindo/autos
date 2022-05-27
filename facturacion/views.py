@@ -39,12 +39,12 @@ def eliminarDetalleFa(request,id):
     return render (request, 'facturacion/deletedetalle.html',context)
 def factura(request):
     factura_db = Factura.objects.all()
-    facturas= FacturaForm(request.POST or None, request.FILES or None)
-    if facturas.is_valid():
-        facturas.save()
+    factura= FacturaForm(request.POST or None, request.FILES or None)
+    if factura.is_valid():
+        factura.save()
         return redirect('factura')
     context = {
         'factura_db': factura_db,	
-        'facturas': facturas,
+        'factura': factura,
     }
     return render (request, 'facturacion/factura.html', context)
